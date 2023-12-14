@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 import pages.ExchangePage;
 import utils.TestBase;
@@ -12,15 +11,16 @@ public class ExchangeTest extends TestBase {
     public void fillForms () {
 
         String BaseCurrencyAmount  = "0.1";
-        String QuoteCurrencyAmount = "0.1"
-        String ExchangeAddress = "0xd8a1e1e71992923e2a4af87f0756db07aa25cd82";
+        String ExchangeAddress = "0x60236c4f8708eb8411c6b19e2222b11f96289e05";
 
 
-        exchangePage.setBaseCurrency();
-        exchangePage.setExchangeAddress();
+        exchangePage.openPage();
+        exchangePage.setBaseCurrency(BaseCurrencyAmount);
+        exchangePage.clickExchangeAddress();
+        exchangePage.setExchangeAddress(ExchangeAddress);
         exchangePage.clickNextButton();
         exchangePage.clickExchangeSubmit();
 
-
+        exchangePage.checkExchangeAmount(BaseCurrencyAmount);
     }
 }

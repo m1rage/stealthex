@@ -1,7 +1,5 @@
 package pages;
 
-package pages;
-
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
@@ -11,9 +9,10 @@ public class ExchangePage {
 
     private SelenideElement baseCurrency = $("#exchange-from-input");
     private SelenideElement quoteCurrency = $("#exchange-to-input");
-    private SelenideElement exchangeAddress = $("exchange-address");
-    private SelenideElement nextButton = $("#exchange-submit");
-    private SelenideElement exchangeSubmit = $("#exchange-submit");
+    private SelenideElement exchangeAddress = $(".ecCwCw");
+    private SelenideElement nextButton = $(".sc-cd8d1e42-4 .sc-46938166-0");
+    private SelenideElement exchangeSubmit = $(".jokreu > .sc-46938166-0");
+    private SelenideElement sendAmount = $(".sc-675156a6-3");
 
     public void openPage () {
         open("/exchange");
@@ -27,8 +26,12 @@ public class ExchangePage {
         quoteCurrency.setValue(value);
     }
 
+    public void clickExchangeAddress () {
+        exchangeAddress.click();
+    }
+
     public void setExchangeAddress (String value) {
-        exchangeAddress.setValue(value);
+        exchangeAddress.val(value);
     }
 
     public void clickNextButton () {
@@ -39,4 +42,7 @@ public class ExchangePage {
         exchangeSubmit.click();
     }
 
+    public void checkExchangeAmount (String value) {
+        sendAmount.shouldHave(text(value));
+    }
 }
