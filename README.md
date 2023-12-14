@@ -1,2 +1,3 @@
 # stealthex
-Test task for stealthex.ip
+Test task for stealthex.io
+Java // Selenide // Junit
